@@ -1,0 +1,21 @@
+{
+  "name": "domdom",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DOMDOM — free-tier social platform (Instagram + Facebook style) for web, Android and iOS.",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:web": "npm run dev --workspace apps/web",
+    "dev:mobile": "npm run start --workspace apps/mobile",
+    "build:web": "npm run build --workspace apps/web",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "db:push": "node scripts/apply-migrations.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

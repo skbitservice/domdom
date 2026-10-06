@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Class-based dark mode: toggle .dark on <html>. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Shared UI components live outside this app — scan them for classes. */
+@source "../../../packages/ui/src";
+
+/* Horizontal strips (stories, suggested people) scroll by swipe/drag; the
+   native scrollbar would only add visual noise under the cards. */
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-white text-zinc-900 antialiased dark:bg-zinc-950 dark:text-zinc-100;
+    font-family:
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      'Segoe UI',
+      Roboto,
+      Helvetica,
+      Arial,
+      sans-serif;
+  }
+}
+
+/* Double-click heart burst animation */
+@keyframes heartBurst {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  15% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  30% {
+    transform: scale(0.95);
+  }
+  45% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
